@@ -13,10 +13,10 @@ namespace MoralesFiFthCRUD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class database2Entities4 : DbContext
+    public partial class database2Entities5 : DbContext
     {
-        public database2Entities4()
-            : base("name=database2Entities4")
+        public database2Entities5()
+            : base("name=database2Entities5")
         {
         }
     
@@ -25,13 +25,14 @@ namespace MoralesFiFthCRUD
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BoughtProducts> BoughtProducts { get; set; }
+        public virtual DbSet<Cart> Cart { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
+        public virtual DbSet<vw_UserProductDetails> vw_UserProductDetails { get; set; }
         public virtual DbSet<vw_UserRole> vw_UserRole { get; set; }
-        public virtual DbSet<Cart> Cart { get; set; }
-        public virtual DbSet<PurchaseDetails> PurchaseDetails { get; set; }
     }
 }

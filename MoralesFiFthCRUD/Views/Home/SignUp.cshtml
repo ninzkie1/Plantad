@@ -81,7 +81,7 @@
                                 <span class="input-group-text br-15"><i class="fas fa-user"></i></span>
                             </div>
                             @Html.Label("", htmlAttributes: new { @class = "control-label" })
-                            @Html.DropDownList("SelectedRole", new SelectList(new[] { "Seller", "Buyer" }), "Select Role", new { @class = "form-control" })
+                            @Html.DropDownList("SelectedRole", new SelectList(new[] { "Seller", "Buyer", "Admin" }), "Select Role", new { @class = "form-control" })
                         </div>
 
                         <button type="submit" value="Create" class="btn btn-success btn-sm float-right submit_btn" disabled id="signupButton"> SignUp</button>

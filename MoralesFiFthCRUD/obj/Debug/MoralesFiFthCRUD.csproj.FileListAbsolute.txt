@@ -698,3 +698,156 @@ C:\Users\BSIT\OneDrive\Desktop\plantss\plants\MoralesFiFthCRUD\bin\System.Web.Mv
 C:\Users\BSIT\OneDrive\Desktop\plantss\plants\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.csprojResolveAssemblyReference.cache
 C:\Users\BSIT\OneDrive\Desktop\plantss\plants\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.dll
 C:\Users\BSIT\OneDrive\Desktop\plantss\plants\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.pdb
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\ApplicationInsights.config
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\csc.exe
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\System.Collections.Immutable.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\System.Reflection.Metadata.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\vbc.exe
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\VBCSCompiler.exe
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\roslyn\VBCSCompiler.exe.config
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\MoralesFiFthCRUD.dll.config
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\MoralesFiFthCRUD.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\MoralesFiFthCRUD.pdb
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.SqlServer.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.Agent.Intercept.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.DependencyCollector.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.Web.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.WindowsServer.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.ApplicationInsights.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.Web.Infrastructure.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Helpers.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Mvc.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Razor.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Deployment.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Razor.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.SqlServer.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.DependencyCollector.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.Web.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.WindowsServer.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.ApplicationInsights.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Razor.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Deployment.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Razor.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Helpers.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Mvc.xml
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.csprojResolveAssemblyReference.cache
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.dll
+C:\nino 13\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.pdb
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\ApplicationInsights.config
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\csc.exe
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\System.Collections.Immutable.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\System.Reflection.Metadata.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\vbc.exe
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\VBCSCompiler.exe
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\roslyn\VBCSCompiler.exe.config
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\MoralesFiFthCRUD.dll.config
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\MoralesFiFthCRUD.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\MoralesFiFthCRUD.pdb
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.SqlServer.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.Agent.Intercept.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.DependencyCollector.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.Web.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.WindowsServer.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.ApplicationInsights.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.Web.Infrastructure.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Helpers.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Mvc.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Razor.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Deployment.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Razor.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.SqlServer.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.DependencyCollector.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.Web.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.WindowsServer.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.ApplicationInsights.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Razor.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Deployment.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Razor.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Helpers.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Mvc.xml
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.csprojResolveAssemblyReference.cache
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.dll
+C:\diri mikw\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.pdb
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\ApplicationInsights.config
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\csc.exe
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\System.Collections.Immutable.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\System.Reflection.Metadata.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\vbc.exe
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\VBCSCompiler.exe
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\roslyn\VBCSCompiler.exe.config
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\MoralesFiFthCRUD.dll.config
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\MoralesFiFthCRUD.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\MoralesFiFthCRUD.pdb
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.SqlServer.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.Agent.Intercept.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.DependencyCollector.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.Web.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.WindowsServer.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.ApplicationInsights.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.Web.Infrastructure.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Helpers.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Mvc.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Razor.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Deployment.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Razor.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\EntityFramework.SqlServer.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.DependencyCollector.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.Web.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.AI.WindowsServer.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.ApplicationInsights.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Razor.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Deployment.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Webpages.Razor.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Helpers.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\bin\System.Web.Mvc.xml
+C:\nnn\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.csprojResolveAssemblyReference.cache
+C:\nnn\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.dll
+C:\nnn\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.pdb
+C:\Users\BSIT\OneDrive\Desktop\merging\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.csprojResolveAssemblyReference.cache
+C:\Users\BSIT\OneDrive\Desktop\merging\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.dll
+C:\Users\BSIT\OneDrive\Desktop\merging\PaLantShop\MoralesFiFthCRUD\obj\Debug\MoralesFiFthCRUD.pdb

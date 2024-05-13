@@ -1,0 +1,53 @@
+﻿@model List<MoralesFiFthCRUD.User>
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        User
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Username</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Username</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@(Model.IndexOf(item) + 1)</td>
+                                <td>@item.username</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "UsersEdit", new { UserId = item.id }, new { @class = "btn btn-primary" })
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3">No users found.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

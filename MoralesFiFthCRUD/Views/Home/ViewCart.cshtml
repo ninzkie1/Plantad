@@ -1,81 +1,104 @@
 ﻿@model List<MoralesFiFthCRUD.ViewModels.ProductViewModel>
+@{
+    ViewBag.Title = "View Cart";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h4 class="my-4">View Cart</h4>
+        </div>
+        <div class="col-md-4">
+            <!-- Search Bar -->
+            <form class="form-inline my-4 my-lg-0" method="get" action="@Url.Action("Shop", "Home")">
+                <input class="form-control mr-sm-2" type="search" name="searchTerm" placeholder="Search for products..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>View Cart</title>
-    <style>
-        /* Styles for product cards */
-        .product-card {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 20px;
-            width: 300px;
-            display: inline-block;
-            vertical-align: top;
-            margin-right: 20px;
-        }
-
-        .product-img {
-            width: 100%;
-            border-radius: 5px;
-        }
-
-        .product-details {
-            margin-top: 10px;
-        }
-
-        .product-name {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .product-category {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .product-description {
-            margin-bottom: 10px;
-        }
-
-        .product-price {
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div>
-        <h2>Your Cart</h2>
+    <!-- Featured Products -->
+    <div class="row mt-4" id="featuredProducts">
+        <!-- Display products dynamically -->
         @foreach (var product in Model)
         {
-            <div class="product-card">
-                @if (product.ProductImg != null && product.ProductImg.Length > 0)
-                {
-                    <img src="data:image;base64,@(Convert.ToBase64String(product.ProductImg))" class="card-img-top" alt="Product Image">
-                }
-                else
-                {
-                    <p>No image available</p>
-                }
-                <div class="product-details">
-                    <div class="product-name">@product.ProductName</div>
-                    <div class="product-category">@product.Category</div>
-                    <div class="product-description">@product.Description</div>
-                    <p class="card-text">₱@product.Price.ToString("N2")</p>
-                    <div class="product-quantity">Quantity: @product.Quantity</div>
-                    <!-- Form for decrementing quantity -->
-                    <form method="post" action="~/Home/DecrementQuantity">
-                        <input type="hidden" name="productId" value="@product.ProductID" />
-                        <button type="submit" class="btn btn-primary">Decrement Quantity</button>
-                    </form>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <!-- Card content -->
+                    <div class="card-image">
+                        @if (product.ProductImg != null)
+                        {
+                            <img src="data:image;base64,@(Convert.ToBase64String(product.ProductImg))" class="card-img-top" alt="Product Image">
+                        }
+                        else
+                        {
+                            <span class="card-img-top">No Image</span>
+                        }
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Product Name: @product.ProductName</h5>
+                        <p class="card-text">Category: @product.Category</p>
+                        <p class="card-text">Description: @product.Description</p>
+                        <p class="card-text">₱@product.Price.ToString("N2")</p>
+                        <p class="card-text">Buyer: <a href="@Url.Action("Shop", "Shop", new { username = product.sellerName })">@product.sellerName</a></p>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <form method="post" action="@Url.Action("DeleteProduct", "Home", new { id = product.ProductID })">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a href="~/Home/Login" class="btn btn-primary">Login to Delete</a>
+                        }
+                    </div>
                 </div>
-                <a href="~/Home/DeleteProduct/@product.ProductID" class="btn btn-danger">Delete</a>
             </div>
         }
     </div>
-</body>
-</html>
+
+    <!-- Back Button -->
+    <div class="row mt-4">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("Shop", "Home")" class="btn btn-secondary">Back to Plant Shop</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Styles for product image containers */
+    .card-image {
+        height: 200px; /* Set the desired height for the image container */
+        overflow: hidden; /* Hide any overflow (e.g., if images are larger) */
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+        /* Styles for product images */
+        .card-image img {
+            width: 100%; /* Ensure images take up full width of their containers */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+    /* Style for product card */
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+</style>

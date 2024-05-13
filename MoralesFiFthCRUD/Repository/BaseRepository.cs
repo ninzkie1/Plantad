@@ -18,7 +18,7 @@ namespace MoralesFiFthCRUD.Repository
         public DbSet<T> _table;
         public BaseRepository()
         {
-            _db = new database2Entities4();
+            _db = new database2Entities5();
             _table = _db.Set<T>();
         }
         public T Get(object id)
@@ -38,7 +38,7 @@ namespace MoralesFiFthCRUD.Repository
                 _db.SaveChanges();
                 return ErrorCode.Success;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return ErrorCode.Error;
             }
@@ -54,7 +54,7 @@ namespace MoralesFiFthCRUD.Repository
                 _db.SaveChanges();
                 return ErrorCode.Success;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return ErrorCode.Error;
             }
@@ -70,7 +70,7 @@ namespace MoralesFiFthCRUD.Repository
                 _db.SaveChanges();
                 return ErrorCode.Success;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return ErrorCode.Error;
             }
@@ -85,10 +85,25 @@ namespace MoralesFiFthCRUD.Repository
                 _db.SaveChanges();
                 return ErrorCode.Success;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return ErrorCode.Error;
             }
+        }
+
+        Contracts.ErrorCode IBaseRepository<T>.Create(T t)
+        {
+            throw new NotImplementedException();
+        }
+
+        Contracts.ErrorCode IBaseRepository<T>.Update(object id, T t)
+        {
+            throw new NotImplementedException();
+        }
+
+        Contracts.ErrorCode IBaseRepository<T>.Delete(object id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

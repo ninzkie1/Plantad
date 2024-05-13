@@ -17,9 +17,9 @@ namespace MoralesFiFthCRUD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+            this.Cart = new HashSet<Cart>();
             this.Products = new HashSet<Products>();
             this.UserRole = new HashSet<UserRole>();
-            this.Cart = new HashSet<Cart>();
         }
     
         public int id { get; set; }
@@ -30,13 +30,13 @@ namespace MoralesFiFthCRUD
         public string firstname { get; set; }
         public string lastname { get; set; }
         public Nullable<int> phonenumber { get; set; }
-        public byte[] UserImg { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Cart { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Products> Products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRole> UserRole { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Cart { get; set; }
     }
 }

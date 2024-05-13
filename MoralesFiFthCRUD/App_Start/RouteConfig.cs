@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace MoralesFiFthCRUD
@@ -13,6 +9,21 @@ namespace MoralesFiFthCRUD
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // sa route for Admin/User
+            routes.MapRoute(
+                name: "AdminUser",
+                url: "Admin/User",
+                defaults: new { controller = "Admin", action = "User" }
+            );
+
+          
+            routes.MapRoute(
+                name: "AdminUserEdit",
+                url: "Admin/UserEdit/{memberId}",
+                defaults: new { controller = "Admin", action = "UserEdit" }
+            );
+
+            // sa Default route
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

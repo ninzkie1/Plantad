@@ -18,12 +18,12 @@ namespace MoralesFiFthCRUD.Controllers
     public class HomeController : BaseController
     {
 
-        private readonly database2Entities4 _dbContext;
+        private readonly database2Entities5 _dbContext;
         private readonly MailManager _mailManager;
 
         public HomeController()
         {
-            _dbContext = new database2Entities4();
+            _dbContext = new database2Entities5();
             _mailManager = new MailManager();
         }
 
@@ -83,31 +83,30 @@ namespace MoralesFiFthCRUD.Controllers
 
             if (userAdded == null)
             {
-                // Handle case where user creation failed
+                
                 ModelState.AddModelError("", "Failed to create user.");
-                return View(u); // Redisplay the form with an error message
+                return View(u); 
             }
 
             if (string.IsNullOrEmpty(SelectedRole))
             {
-                // Handle case where role is not selected
+                
                 ModelState.AddModelError("", "Role not selected.");
-                return View(u); // Redisplay the form with an error message
+                return View(u); 
             }
 
             var role = _db.Role.FirstOrDefault(r => r.roleName == SelectedRole);
 
             if (role == null)
             {
-                // Handle case where role is not found (invalid selection)
                 ModelState.AddModelError("", "Invalid role selected.");
-                return View(u); // Redisplay the form with an error message
+                return View(u); 
             }
 
             var userRole = new UserRole
             {
                 userId = userAdded.id,
-                roleId = role.id // Assign the retrieved roleId
+                roleId = role.id 
             };
 
             _userRole.Create(userRole);
@@ -179,7 +178,7 @@ namespace MoralesFiFthCRUD.Controllers
                 return View(u);
             }
 
-            // OTP is correct, proceed with user creation
+            //kong  OTP is kay correct, proceed with user creation
             var existingUser = _userRepo._table.FirstOrDefault(m => m.username == u.username);
 
             if (existingUser != null)
@@ -188,7 +187,6 @@ namespace MoralesFiFthCRUD.Controllers
                 return RedirectToAction("SignUp");
             }
 
-            // Proceed with user creation if the username is unique
             _userRepo.Create(u);
 
             var userAdded = _userRepo._table.FirstOrDefault(m => m.username == u.username);
@@ -265,7 +263,6 @@ namespace MoralesFiFthCRUD.Controllers
             var user = _userRepo._table.FirstOrDefault(u => u.username == userName);
             if (user == null)
             {
-                // Handle the case where the user is not found
                 ModelState.AddModelError("Shop", "Home");
                 return View();
             }
@@ -276,34 +273,29 @@ namespace MoralesFiFthCRUD.Controllers
         [Authorize(Roles = "Seller")]
         public ActionResult SellerView(string productName, int categoryId, HttpPostedFileBase productImage, string productDescription, decimal productPrice, int productQuantity)
         {
-            // Get the username of the currently logged-in user
             string userName = User.Identity.Name;
 
-            // Retrieve the user from the repository based on the username
             var user = _userRepo._table.FirstOrDefault(u => u.username == userName);
 
             if (user == null)
             {
-                // Handle the case where the user is not found
                 ModelState.AddModelError("Shop", "Home");
                 return View();
             }
 
-            // Retrieve the category from the database based on the categoryId provided in the form
             var category = _db.Category.FirstOrDefault(c => c.id == categoryId);
 
             if (category == null)
             {
-                // Handle the case where the category is not found
                 ModelState.AddModelError("", "Category not found.");
-                return View(); // You may redirect to an error page or display an error message
+                return View(); 
             }
 
-            // Check if a file was uploaded
+            
             if (productImage == null || productImage.ContentLength == 0)
             {
                 ModelState.AddModelError("", "Please select a product image.");
-                return View(); // Return to the view to display the error message
+                return View(); 
             }
 
             
@@ -313,14 +305,12 @@ namespace MoralesFiFthCRUD.Controllers
                 return View(); 
             }
 
-            // Check if the file size is within the limit (e.g., 5MB)
             if (productImage.ContentLength > 5 * 1024 * 1024)
             {
                 ModelState.AddModelError("", "The image size exceeds the limit (5MB). Please upload a smaller image.");
                 return View();
             }
 
-            // Read the file data and convert it to a byte array
             byte[] imageData;
             using (var binaryReader = new BinaryReader(productImage.InputStream))
             {
@@ -357,10 +347,64 @@ namespace MoralesFiFthCRUD.Controllers
         }
         [Authorize(Roles = "Buyer")]
         public ActionResult Userprofile()
+
         {
-            return View();
+            string userName = User.Identity.Name;
+
+            var user = _dbContext.User.FirstOrDefault(u => u.username == userName);
+
+            if (user == null)
+            {
+                return View("Shop");
+            }
+
+            var userProfile = new SellerViewModel
+            {
+                UserID = user.id,
+                Firstname = user.firstname,
+                Lastname = user.lastname,
+                email = user.email,
+                phonenumber = user.phonenumber ?? 0,
+                address = user.address,
+                passWord = user.password
+
+                
+            };
+
+
+            return View(userProfile);
         }
-        
+        [HttpPost]
+
+        [Authorize(Roles = "Buyer")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveProfileUser(SellerViewModel sellerVM)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _dbContext.User.Find(sellerVM.UserID);
+
+                if (user != null)
+                {
+                    user.firstname = sellerVM.Firstname;
+                    user.lastname = sellerVM.Lastname;
+                    user.email = sellerVM.email;
+                    user.phonenumber = sellerVM.phonenumber;
+                    user.address = sellerVM.address;
+
+                    _dbContext.SaveChanges();
+
+                    TempData["SuccessMsg"] = "Profile updated successfully!";
+                }
+                else
+                {
+                    TempData["ErrorMsg"] = "User not found.";
+                }
+            }
+
+            return RedirectToAction("UserProfile");
+        }
+
         [Authorize(Roles = "Seller")]
         public ActionResult Resellerprofile()
         {
@@ -383,7 +427,6 @@ namespace MoralesFiFthCRUD.Controllers
                 address = user.address,
                 passWord = user.password,
                
-                // Corrected: Products is a List<ProductViewModel>
                 Products = _dbContext.Products
                     .Where(p => p.UserId == user.id)
                     .Select(p => new ProductViewModel
@@ -437,7 +480,7 @@ namespace MoralesFiFthCRUD.Controllers
         [AllowAnonymous]
         public ActionResult test(string username)
         {
-           
+
             var user = _dbContext.User.FirstOrDefault(u => u.username == username);
             if (user == null)
             {
@@ -446,7 +489,7 @@ namespace MoralesFiFthCRUD.Controllers
 
             var products = _dbContext.Products
                 .Where(p => p.UserId == user.id && p.Category != null)
-                .ToList() 
+                .ToList()
                 .Select(p => new ProductViewModel
                 {
                     ProductID = p.ProductID,
@@ -455,16 +498,18 @@ namespace MoralesFiFthCRUD.Controllers
                     ProductImg = p.ProductImg,
                     Description = p.description,
                     Quantity = p.Quantity ?? 0,
-                    sellerName = p.User.username,
                     Price = p.price ?? 0,
+                    sellerName = _dbContext.Products
+                        .Where(pr => pr.ProductID == p.ProductID)
+                        .Select(pr => pr.User.username)
+                        .FirstOrDefault()
                 })
                 .ToList();
 
+
             return View(products);
         }
-
-        [Authorize(Roles = "Seller")]
-        public ActionResult DeleteProduct(int id)
+        public ActionResult PublicDelete(int id)
         {
             var result = _productRepo.Delete(id);
 
@@ -476,6 +521,25 @@ namespace MoralesFiFthCRUD.Controllers
             else
             {
                 // Failed to delete product
+                TempData["ErrorMsg"] = "Failed to delete product.";
+            }
+
+            return RedirectToAction("Shop");
+        }
+
+        [Authorize(Roles = "Seller")]
+        public ActionResult DeleteProduct(int id)
+        {
+            var result = _productRepo.Delete(id);
+
+            if (result == Repository.ErrorCode.Success)
+            {
+                //kong Product deleted successfully
+                TempData["SuccessMsg"] = "Product deleted successfully!";
+            }
+            else
+            {
+                //kong Failed to delete product
                 TempData["ErrorMsg"] = "Failed to delete product.";
             }
 
@@ -508,7 +572,6 @@ namespace MoralesFiFthCRUD.Controllers
                 Description = product.description,
                 Quantity = product.Quantity ?? 0,
                 Price = product.price ?? 0
-                // ProductImg = product.ProductImg // If you're handling image edits
             };
 
             ViewBag.Categories = new SelectList(_dbContext.Category, "id", "CategoryName", viewModel.CategoryId);
@@ -558,7 +621,7 @@ namespace MoralesFiFthCRUD.Controllers
             {
                 _dbContext.SaveChanges();
                 TempData["SuccessMsg"] = "Product updated successfully!";
-                return RedirectToAction("ResellerProfile");
+                return RedirectToAction("EditProduct");
             }
             catch (Exception ex)
             {
@@ -569,18 +632,17 @@ namespace MoralesFiFthCRUD.Controllers
 
 
 
-        // Helper method to get the current user's ID
         private int GetCurrentUserId()
         {
             string userName = User.Identity.Name;
             var user = _userRepo._table.FirstOrDefault(u => u.username == userName);
-            return user?.id ?? 0; // Return 0 if user not found (handle appropriately in your app)
+            return user?.id ?? 0; 
         }
 
 
 
 
-        //BUY Dire
+        
 
         public ActionResult Buy(int productId, int quantity)
         {
@@ -608,7 +670,6 @@ namespace MoralesFiFthCRUD.Controllers
                 return RedirectToAction("Shop");
             }
 
-            // Look for an existing purchase record in PurchasedProducts
             var existingBoughtProduct = _dbContext.Cart.FirstOrDefault(p =>
                 p.UserId == buyer.id && p.ProductID == productId);
 
@@ -632,23 +693,15 @@ namespace MoralesFiFthCRUD.Controllers
                     description = product.description,
                     ProductImg = product.ProductImg
 
-                    // Add other relevant fields if needed
                 };
 
                 _dbContext.Cart.Add(boughtProduct);
             }
-            if (product.SoldOut)
-            {
-                TempData["ErrorMsg"] = "This product is sold out.";
-                return RedirectToAction("Shop");
-            }
+           
 
-            product.Quantity -= quantity; // Update product inventory
+            product.Quantity -= quantity; //kong Update product inventory
 
-            if (product.Quantity == 0)
-            {
-                product.SoldOut = true;
-            }
+            
 
             _dbContext.SaveChanges();
 
@@ -744,22 +797,22 @@ namespace MoralesFiFthCRUD.Controllers
             {
                 productInCart.Quantity--;
 
-                // Calculate the price change
+                //mo Calculate the price change
                 decimal originalPrice = productInCart.Products.price ?? 0;
                 decimal priceChange = originalPrice;
 
                 if (productInCart.Quantity <= 0)
                 {
-                    // Remove from cart entirely
+                    //mo Remove from cart entirely
                     _dbContext.Cart.Remove(productInCart);
                 }
                 else
                 {
-                    // Update price in Cart (optional)
+                    //mo Update price in Cart (optional)
                     productInCart.Price -= priceChange;
                 }
 
-                // Save changes
+                //mo Save changes
                 _dbContext.SaveChanges();
             }
 

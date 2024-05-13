@@ -23,6 +23,8 @@ namespace MoralesFiFthCRUD
         public int id { get; set; }
         public string roleName { get; set; }
     
+        public virtual Role Role1 { get; set; }
+        public virtual Role Role2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRole> UserRole { get; set; }
     }

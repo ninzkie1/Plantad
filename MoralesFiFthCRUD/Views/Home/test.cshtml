@@ -1,8 +1,8 @@
 ﻿@model List<MoralesFiFthCRUD.ViewModels.ProductViewModel>
 @{
-
     Layout = "~/Views/Shared/_LayoutStoreOwner.cshtml";
 }
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,19 +11,18 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .card-img-top {
-            height: 200px; 
-            object-fit: cover; 
+            height: 200px;
+            object-fit: cover;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        
+
         <div class="row">
             @foreach (var product in Model)
             {
-                
                 <div class="col-md-4 mb-4">
                     <div class="card">
                         <!-- Product Image -->
@@ -37,30 +36,27 @@
                         }
                         <!-- Product Details -->
                         <div class="card-body">
-
                             <h5 class="card-title">ProductName: @product.ProductName</h5>
                             <p class="card-text">Description: @product.Description</p>
                             <p class="card-text">Price:₱@product.Price</p>
                             <p class="card-text">Category: @product.Category</p>
                             <p class="card-text">Category: @product.Quantity</p>
-                          
-
-
-
-
                         </div>
                     </div>
                 </div>
             }
+        </div>
 
+        <!-- Back Button -->
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <a href="@Url.Action("Shop", "Home")" class="btn btn-secondary">Back to Plant Shop</a>
+            </div>
         </div>
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
-
 </html>

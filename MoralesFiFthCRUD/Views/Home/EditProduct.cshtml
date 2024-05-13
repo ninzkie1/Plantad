@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -23,7 +24,7 @@
                 <div class="card p-4">
                     <div class="card-body">
                         <h5 class="card-title text-center mb-4">Edit Product</h5>
-                        @using (Html.BeginForm("EditProduct", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        @using (Html.BeginForm("EditProduct", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id = "editProductForm" }))
                         {
                             @Html.AntiForgeryToken()
                             @Html.HiddenFor(m => m.ProductID)
@@ -47,25 +48,63 @@
                                 <label for="productQuantity">Quantity:</label>
                                 @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", required = "required", type = "number", min = "1" })
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                            <button type="submit" id="saveChangesBtn" class="btn btn-primary btn-block">Save Changes</button>
                         }
+                        <!-- SweetAlert library included HERE -->
+                        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                        <script>
+// Wait for the document to be fully loaded
+             document.addEventListener('DOMContentLoaded', function() {
+    // Get the "Save Changes" button element
+    var saveChangesBtn = document.getElementById('saveChangesBtn');
 
-                        @if (TempData["SuccessMsg"] != null)
-                        {
-                            <div class="alert alert-success mt-4">
-                                @TempData["SuccessMsg"]
-                            </div>
-                        }
-                        @if (TempData["ErrorMsg"] != null)
-                        {
-                            <div class="alert alert-danger mt-4">
-                                @TempData["ErrorMsg"]
-                            </div>
-                        }
+    // Add a click event listener to the button
+    saveChangesBtn.addEventListener('click', function(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Trigger the SweetAlert dialog
+        swal({
+            title: "Saving Changes...",
+            text: "Please wait...",
+            icon: "info",
+            button: false,
+            closeOnClickOutside: false,
+            closeOnEsc: false
+        });
+
+        // Submit the form
+        setTimeout(function() {
+            document.getElementById('editProductForm').submit();
+        }, 2000); // Delay the form submission for 2 seconds (adjust as needed)
+    });
+});
+var successMsg = "@TempData["SuccessMsg"]";
+if (successMsg) {
+    swal({
+        title: "Success!",
+        text: successMsg,
+        icon: "success",
+        button: {
+            text: "OK",
+            closeModal: false
+        }
+    }).then(function() {
+        window.location.href = "/Home/ResellerProfile"; // Redirect to the desired view
+    });
+}
+                        </script>
+
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 </body>
 </html>

@@ -12,7 +12,7 @@ namespace MoralesFiFthCRUD.Contracts
         Error
     }
 
-   
+
     public interface IBaseRepository<T>
     {
         T Get(object id);
@@ -24,7 +24,7 @@ namespace MoralesFiFthCRUD.Contracts
         ErrorCode Update(object id, T t);
 
         ErrorCode Delete(object id);
-       
+
 
     }
 }

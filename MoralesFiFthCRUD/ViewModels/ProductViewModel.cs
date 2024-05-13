@@ -22,6 +22,18 @@ namespace MoralesFiFthCRUD.ViewModels
         public int CategoryId { get; set; }
         public bool SoldOut { get; set; }
         public decimal TotalCartPrice { get; set; }
+        public DateTime PurchaseDate { get; set; }
+
+        public bool IsActive { get; set; }
+        public bool IsDelete { get; set; }
+        public bool IsFeatured { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime ModifiedOn { get; set; }
+        public string EmailId { get; set; }
+        public object Name { get; internal set; }
+
+        public int Id { get; set; }
+     
 
     }
 }
