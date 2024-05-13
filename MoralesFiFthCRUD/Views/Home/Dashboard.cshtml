@@ -96,12 +96,17 @@
                             else if (User.IsInRole("Buyer"))
                             {
                                 <a class="nav-link" href="~/Home/UserProfile">Profile</a>
+
+                            }
+                            
+                            else if (User.IsInRole("Admin"))
+                            {
+                            <a class="nav-link" href="~/Admin/AdminDashboard">DashBoard</a>
                             }
                             else
                             {
                                 <a class="nav-link" href="#"></a>
                             }
-
                         </li>
                         }
                     </ul>
@@ -230,7 +235,7 @@
         <!-- Footer -->
         <footer class="py-4 text-center">
             <div class="container">
-                <p>&copy; 2024 Plant Shop</p>
+                
             </div>
         </footer>
 

@@ -49,17 +49,18 @@ namespace MoralesFiFthCRUD.Controllers
         [HttpPost]
         public ActionResult Login(User u)
         {
+            
             if (User.Identity.IsAuthenticated)
             {
-                // Redirect to the Shop page
-                return RedirectToAction("Dashboard");
+                
+                return RedirectToAction("Shop");
             }
             var user = _userRepo._table.Where(m => m.username == u.username).FirstOrDefault();
-            
+           
             if (user != null)
             {
                 if (user.password == u.password)
-                {
+                {   
                     FormsAuthentication.SetAuthCookie(u.username, false);
                     return RedirectToAction("Dashboard");
                 }
@@ -513,7 +514,7 @@ namespace MoralesFiFthCRUD.Controllers
         {
             var result = _productRepo.Delete(id);
 
-            if (result == ErrorCode.Success)
+            if (result == Repository.ErrorCode.Success)
             {
                 // Product deleted successfully
                 TempData["SuccessMsg"] = "Product deleted successfully!";
@@ -753,25 +754,27 @@ namespace MoralesFiFthCRUD.Controllers
 
             if (buyer == null)
             {
-                return View("Error");
+                return View("Login");
             }
 
-           
+
             var boughtProducts = _dbContext.Cart
                 .Where(p => p.UserId == buyer.id)
-                .Include(p => p.Products) 
+                .Include(p => p.Products)
                 .ToList()
                 .Select(p => new ProductViewModel
                 {
                     ProductID = p.Products.ProductID,
-                    ProductName = p.Products.ProductName, 
+                    ProductName = p.Products.ProductName,
                     Category = p.Products.Category != null ? p.Products.Category.CategoryName : "N/A",
                     ProductImg = p.Products.ProductImg,
                     Description = p.Products.description,
                     Quantity = p.Quantity ?? 0,
                     Price = p.Price ?? 0,
-                    sellerName = p.Products.User.username,
-                    BuyerName = buyerName 
+                    sellerName = _dbContext.Products
+                        .Where(pr => pr.ProductID == p.ProductID)
+                        .Select(pr => pr.User.username)
+                        .FirstOrDefault()
                 })
                 .ToList();
 
@@ -779,8 +782,7 @@ namespace MoralesFiFthCRUD.Controllers
         }
 
 
-        
-        [HttpPost]
+
         public ActionResult DecrementQuantity(int productId)
         {
             string buyerName = User.Identity.Name;
@@ -797,22 +799,30 @@ namespace MoralesFiFthCRUD.Controllers
             {
                 productInCart.Quantity--;
 
-                //mo Calculate the price change
+                // Calculate the price change
                 decimal originalPrice = productInCart.Products.price ?? 0;
-                decimal priceChange = originalPrice;
+                decimal newPrice = productInCart.Quantity * originalPrice ?? 0; // No need for ?? 0 here
 
                 if (productInCart.Quantity <= 0)
                 {
-                    //mo Remove from cart entirely
+                    // Remove from cart entirely
                     _dbContext.Cart.Remove(productInCart);
                 }
                 else
                 {
-                    //mo Update price in Cart (optional)
-                    productInCart.Price -= priceChange;
+                    // Update total price based on new quantity
+                    productInCart.Price = newPrice;
                 }
 
-                //mo Save changes
+                // Find the actual product to increment its quantity
+                var product = _dbContext.Products.FirstOrDefault(p => p.ProductID == productId);
+                if (product != null)
+                {
+                    // Increment product quantity by 1 
+                    product.Quantity++;
+                }
+
+                // Save changes
                 _dbContext.SaveChanges();
             }
 
@@ -821,8 +831,95 @@ namespace MoralesFiFthCRUD.Controllers
         }
 
 
+        [Authorize(Roles = "Buyer")]
+        public ActionResult ConfirmPurchase()
+        {
+            string buyerName = User.Identity.Name;
+            var buyer = _dbContext.User.FirstOrDefault(u => u.username == buyerName);
 
+            if (buyer == null)
+            {
+                TempData["ErrorMsg"] = "User not found.";
+                return RedirectToAction("ViewCart");
+            }
+
+            // Retrieve cart items for the buyer
+            var cartItems = _dbContext.Cart.Where(c => c.UserId == buyer.id).ToList();
+
+            if (cartItems.Count == 0)
+            {
+                TempData["ErrorMsg"] = "Your cart is empty.";
+                return RedirectToAction("ViewCart");
+            }
+
+            foreach (var cartItem in cartItems)
+            {
+                var boughtProduct = new BoughtProducts
+                {
+                    ProductId = cartItem.ProductID,
+                    UserId = cartItem.UserId,
+                    Quantity = cartItem.Quantity,
+                    TotalAmmount = cartItem.Price,
+                    DateofPurchase = DateTime.Now,
+                    ProductName = cartItem.ProductName,
+                    Description = cartItem.description,
+                    SellerName = cartItem.SellerName
+                };
+
+
+                _dbContext.BoughtProducts.Add(boughtProduct);
+
+
+                _dbContext.Cart.Remove(cartItem);
+            }
+
+            // Save changes to the database
+            _dbContext.SaveChanges();
+
+            TempData["SuccessMsg"] = "Purchase completed successfully!";
+            return RedirectToAction("BoughtItems");
+        }
+
+
+
+
+
+        public ActionResult BoughtItems()
+        {
+            string buyerName = User.Identity.Name;
+            var buyer = _dbContext.User.FirstOrDefault(u => u.username == buyerName);
+
+            if (buyer == null)
+            {
+                return View("Login");
+            }
+
+            var boughtProducts = _dbContext.BoughtProducts
+                .Where(p => p.UserId == buyer.id)
+                .ToList()
+                .Select(p => new ProductViewModel
+                {
+                    ProductID = p.ProductId ?? 0,
+                    UserId = p.UserId ?? 0,
+                    Quantity = p.Quantity ?? 0,
+                    TotalPrice = p.TotalAmmount ?? 0,
+                    PurchaseDate = p.DateofPurchase.Value,
+                    ProductName = p.ProductName,
+                    Description = p.Description,
+
+                    // Retrieve the seller's name from the Products table
+                    sellerName = _dbContext.Products
+                        .Where(pr => pr.ProductID == p.ProductId)
+                        .Select(pr => pr.User.username)
+                        .FirstOrDefault()
+                })
+                .ToList();
+
+            return View(boughtProducts);
+        }
     }
+
+
 
 }
 

@@ -14,6 +14,7 @@ namespace MoralesFiFthCRUD
     
     public partial class Category
     {
+        internal bool IsDelete;
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Category()
         {

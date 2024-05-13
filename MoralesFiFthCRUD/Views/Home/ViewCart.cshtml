@@ -39,8 +39,14 @@
                         <h5 class="card-title">Product Name: @product.ProductName</h5>
                         <p class="card-text">Category: @product.Category</p>
                         <p class="card-text">Description: @product.Description</p>
+
                         <p class="card-text">₱@product.Price.ToString("N2")</p>
+                        <p class="card-text">Quantity: @product.Quantity</p>
                         <p class="card-text">Buyer: <a href="@Url.Action("Shop", "Shop", new { username = product.sellerName })">@product.sellerName</a></p>
+                        <form method="post" action="~/Home/DecrementQuantity">
+                            <input type="hidden" name="productId" value="@product.ProductID" />
+                            <button type="submit" class="btn btn-secondary">-</button>
+                        </form><br /><br />
                         @if (User.Identity.IsAuthenticated)
                         {
                             <form method="post" action="@Url.Action("DeleteProduct", "Home", new { id = product.ProductID })">
@@ -56,7 +62,10 @@
             </div>
         }
     </div>
-
+    <div class="btn-container">
+        <!-- Checkout button -->
+        <a href="~/Home/ConfirmPurchase" class="btn btn-success btn-checkout">Check Out</a>
+    </div>
     <!-- Back Button -->
     <div class="row mt-4">
         <div class="col-md-12 text-center">

@@ -20,7 +20,7 @@ namespace MoralesFiFthCRUD.ViewModels
         
         public string BuyerName { get; set; }
         public int CategoryId { get; set; }
-        public bool SoldOut { get; set; }
+        public decimal TotalPrice { get; set; }
         public decimal TotalCartPrice { get; set; }
         public DateTime PurchaseDate { get; set; }
 

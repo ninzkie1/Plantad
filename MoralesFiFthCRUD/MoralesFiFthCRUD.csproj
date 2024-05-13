@@ -187,6 +187,7 @@
     <Content Include="scripts\MailSender.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="scripts\quantityselector.js" />
+    <Content Include="scripts\ResellerEdit.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -295,6 +296,7 @@
     <Content Include="Views\Admin\ProductEdit.cshtml" />
     <Content Include="Views\Admin\ProductAdd.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Home\BoughtItems.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -325,8 +325,6 @@ warning 6002: The table/view 'database2.dbo.vw_UserRole' does not have a primary
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="roleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Role1" Relationship="Self.FK_Role_Role" FromRole="Role" ToRole="Role1" />
-          <NavigationProperty Name="Role2" Relationship="Self.FK_Role_Role" FromRole="Role1" ToRole="Role" />
           <NavigationProperty Name="UserRole" Relationship="Self.FK_UserRole_Role" FromRole="Role" ToRole="UserRole" />
         </EntityType>
         <EntityType Name="User">
@@ -428,18 +426,6 @@ warning 6002: The table/view 'database2.dbo.vw_UserRole' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Role_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="Role1" Type="Self.Role" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Role1">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UserRole_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
@@ -489,10 +475,6 @@ warning 6002: The table/view 'database2.dbo.vw_UserRole' does not have a primary
           <AssociationSet Name="FK_Products_User" Association="Self.FK_Products_User">
             <End Role="User" EntitySet="User" />
             <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Role_Role" Association="Self.FK_Role_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="Role1" EntitySet="Role" />
           </AssociationSet>
           <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
             <End Role="Role" EntitySet="Role" />

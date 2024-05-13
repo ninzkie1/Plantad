@@ -17,24 +17,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <!-- Dropdown Categories -->
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Categories
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#" onclick="displayPopularProducts()">Popular</a>
-                    <a class="dropdown-item" href="#" onclick="displayAllProducts()">All Products</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" onclick="displayPlants()">Plants</a>
-                    <a class="dropdown-item" href="#" onclick="displayFertilizerProducts()">Fertilizer</a>
-                    <a class="dropdown-item" href="#" onclick="displaySoilProducts()">Soil</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Featured Products -->
     <div class="row mt-4" id="featuredProducts">
@@ -59,11 +42,12 @@
                         <p class="card-text">Category: @product.Category</p>
                         <p class="card-text">Description: @product.Description</p>
                         <p class="card-text">Price: ₱@product.Price.ToString("N2")</p>
-                       
 
-                        @if (product.SoldOut)
+
+                        @if (product.Quantity == 0)
                         {
-                            <span class="text-danger">Sold Out</span>
+
+                            <span class="text-danger">SOLD</span>
                         }
                         else if (User.IsInRole("Buyer"))
                         {
@@ -76,7 +60,6 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary">Buy</button>
                             </form>
-
                         }
                         else if (!User.Identity.IsAuthenticated)
                         {
@@ -84,13 +67,20 @@
                         }
                         else
                         {
-                            <a href="#" class="btn btn-primary">Buy</a>
+
+                            <p></p>
                         }
-                            @*//if ang user kay dili seller maka punta sa store which is naka locate sa test*@
-                            @if (!User.IsInRole("Seller"))
-                            {
-                                <a href="@Url.Action("test", "Home", new { username = product.sellerName })">Seller:@product.sellerName</a>
-                            }
+
+
+
+
+
+
+                        @*//if ang user kay dili seller maka punta sa store which is naka locate sa test*@
+                        @if (!User.IsInRole("Seller"))
+                        {
+                            <a href="@Url.Action("test", "Home", new { username = product.sellerName })">Seller:@product.sellerName</a>
+                        }
 
 
                         @*<a href="~/Home/DeleteProduct/@product.ProductID" class="btn btn-danger">Delete</a>*@
@@ -105,11 +95,6 @@
 </div>
 
 <style>
-
-
-
-
-
     /* Styles for product image containers */
     .card-image {
         height: 300px; /* Set the desired height for the image container */

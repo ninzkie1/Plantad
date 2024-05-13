@@ -18,7 +18,6 @@
         <AssociationConnector Association="database2Model.FK_Cart_User" ManuallyRouted="false" />
         <AssociationConnector Association="database2Model.FK_Products_Category1" ManuallyRouted="false" />
         <AssociationConnector Association="database2Model.FK_Products_User" ManuallyRouted="false" />
-        <AssociationConnector Association="database2Model.FK_Role_Role" ManuallyRouted="false" />
         <AssociationConnector Association="database2Model.FK_UserRole_Role" ManuallyRouted="false" />
         <AssociationConnector Association="database2Model.FK_UserRole_User" ManuallyRouted="false" />
       </Diagram>
